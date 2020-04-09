@@ -1,7 +1,9 @@
 use super::*;
 
-const EXPECTED_PUBLIC_KEY_BASE36: &'static str = "5m5srup6m3b2iilrsqmxu6ydp8p8cr0rdbh4wamupk3s4sxqr5";
-const EXPECTED_SIGNATURE_BASE64: &'static str = "Oenv1TK5Ke5OUsrZ/d3RzGldXlx6/w0yb6eW+iuDkjMohwfvT3Areqk18yRthJjx60/DUrCkRwJs0X8/z30EDw==";
+const EXPECTED_PUBLIC_KEY_BASE36: &'static str =
+    "5m5srup6m3b2iilrsqmxu6ydp8p8cr0rdbh4wamupk3s4sxqr5";
+const EXPECTED_SIGNATURE_BASE64: &'static str =
+    "Oenv1TK5Ke5OUsrZ/d3RzGldXlx6/w0yb6eW+iuDkjMohwfvT3Areqk18yRthJjx60/DUrCkRwJs0X8/z30EDw==";
 
 #[test]
 fn verify_public_key_base36() {
@@ -29,7 +31,7 @@ fn verify_signature() {
         hhaids: vec!["QmHHAid_1".to_string(), "QmHHAid_2".to_string()],
     };
     let payload_json = serde_json::to_string(&payload).unwrap();
-    
+
     let signature = keypair.sign(payload_json.as_bytes());
     let signature_base64 = base64::encode(&signature.to_bytes()[..]);
 

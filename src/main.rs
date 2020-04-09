@@ -1,7 +1,8 @@
+use anyhow::{Context, Result};
+use ed25519_dalek::{Keypair, PublicKey, SecretKey};
+use hpos_config_core::{public_key, Config};
 use serde::*;
 use std::io::{stdin, Read};
-use ed25519_dalek::{PublicKey, SecretKey, Keypair};
-use hpos_config_core::{Config, public_key};
 use std::{env, fs};
 
 #[derive(Deserialize)]
